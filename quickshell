@@ -1,2 +1,5 @@
 #!/bin/bash
-/bin/su -l
+echo -e "\n";
+ifconfig | grep inet | egrep -o "inet addr:[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+" | grep -v 127.0.0.1 | sed 's/^inet addr://g' >> /dev/tty1
+echo -e "\n";
+su -l
